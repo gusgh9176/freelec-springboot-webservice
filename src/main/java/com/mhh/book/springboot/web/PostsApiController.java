@@ -3,7 +3,6 @@ package com.mhh.book.springboot.web;
 import com.mhh.book.springboot.service.posts.PostsService;
 import com.mhh.book.springboot.web.dto.PostsResponseDto;
 import com.mhh.book.springboot.web.dto.PostsSaveRequestDto;
-import com.mhh.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +19,7 @@ public class PostsApiController {
     }
 
     @PutMapping(postsPath + "/{id}")
-    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
+    public Long update(@PathVariable Long id, @RequestBody PostsSaveRequestDto requestDto) {
         return postsService.update(id, requestDto);
     }
 
