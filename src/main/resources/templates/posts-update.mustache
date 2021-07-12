@@ -11,7 +11,12 @@
             </div>
             <div class="form-group">
                 <label for="title">제목</label>
+                {{#writer}}
                 <input type="text" class="form-control" id="title" value="{{post.title}}">
+                {{/writer}}
+                {{^writer}}
+                    <input type="text" class="form-control" id="title" value="{{post.title}}" readonly>
+                {{/writer}}
             </div>
             <div class="form-group">
                 <label for="author"> 작성자 </label>
@@ -19,12 +24,19 @@
             </div>
             <div class="form-group">
                 <label for="content"> 내용 </label>
-                <textarea class="form-control" id="content">{{post.content}}</textarea>
+                {{#writer}}
+                    <textarea class="form-control" id="content">{{post.content}}</textarea>
+                {{/writer}}
+                {{^writer}}
+                    <textarea class="form-control" id="content" readonly>{{post.content}}</textarea>
+                {{/writer}}
             </div>
         </form>
         <a href="/" role="button" class="btn btn-secondary">취소</a>
+        {{#writer}}
         <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
         <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+        {{/writer}}
     </div>
 </div>
 
